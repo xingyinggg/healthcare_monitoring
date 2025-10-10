@@ -44,7 +44,6 @@ A modern, responsive healthcare management dashboard built with React and Tailwi
 
    ```bash
    git clone <your-repo-url>
-   cd healthcare-management
    ```
 
 2. **Install dependencies**
