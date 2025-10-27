@@ -1,11 +1,14 @@
+import { useAuth } from "react-oidc-context"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const auth = useAuth();
 
   const handleLogout = () => {
-    navigate('/login');
+    auth.removeUser();
+    // navigate('/login');
   };
 
   const isActive = (path) => location.pathname === path;
@@ -73,8 +76,10 @@ const Navbar = () => {
                 </svg>
               </div>
               <div className="text-sm">
-                <p className="font-semibold text-neutral-900">Dr. Smith</p>
-                <p className="text-neutral-500 text-2xs">Cardiologist</p>
+                <p className="font-semibold text-neutral-900">
+                  {auth.user?.profile?.email || auth.user?.profile?.name || 'User'}
+                </p>
+                <p className="text-neutral-500 text-2xs">Healthcare Professional</p>
               </div>
             </div>
 
