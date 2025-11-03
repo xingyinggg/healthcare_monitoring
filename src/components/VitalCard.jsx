@@ -1,44 +1,44 @@
 const VitalCard = ({ title, value, unit, color = 'primary', onClick, icon, trend }) => {
   const colorClasses = {
     primary: {
-      gradient: 'from-primary-50 to-primary-100',
-      border: 'border-primary-200/50',
-      text: 'text-primary-700',
-      accent: 'from-primary-500 to-primary-600',
-      icon: 'text-primary-600',
-      iconBg: 'bg-primary-100'
+      gradient: 'from-blue-50 to-blue-100',
+      border: 'border-blue-200/50',
+      text: 'text-blue-700',
+      accent: 'from-blue-500 to-blue-600',
+      icon: 'text-blue-600',
+      iconBg: 'bg-blue-100'
     },
     secondary: {
-      gradient: 'from-secondary-50 to-secondary-100',
-      border: 'border-secondary-200/50',
-      text: 'text-secondary-700',
-      accent: 'from-secondary-500 to-secondary-600',
-      icon: 'text-secondary-600',
-      iconBg: 'bg-secondary-100'
+      gradient: 'from-purple-50 to-purple-100',
+      border: 'border-purple-200/50',
+      text: 'text-purple-700',
+      accent: 'from-purple-500 to-purple-600',
+      icon: 'text-purple-600',
+      iconBg: 'bg-purple-100'
     },
     success: {
-      gradient: 'from-success-50 to-success-100',
-      border: 'border-success-200/50',
-      text: 'text-success-700',
-      accent: 'from-success-500 to-success-600',
-      icon: 'text-success-600',
-      iconBg: 'bg-success-100'
+      gradient: 'from-green-50 to-green-100',
+      border: 'border-green-200/50',
+      text: 'text-green-700',
+      accent: 'from-green-500 to-green-600',
+      icon: 'text-green-600',
+      iconBg: 'bg-green-100'
     },
     warning: {
-      gradient: 'from-warning-50 to-warning-100',
-      border: 'border-warning-200/50',
-      text: 'text-warning-700',
-      accent: 'from-warning-500 to-warning-600',
-      icon: 'text-warning-600',
-      iconBg: 'bg-warning-100'
+      gradient: 'from-yellow-50 to-yellow-100',
+      border: 'border-yellow-200/50',
+      text: 'text-yellow-700',
+      accent: 'from-yellow-500 to-yellow-600',
+      icon: 'text-yellow-600',
+      iconBg: 'bg-yellow-100'
     },
     danger: {
-      gradient: 'from-danger-50 to-danger-100',
-      border: 'border-danger-200/50',
-      text: 'text-danger-700',
-      accent: 'from-danger-500 to-danger-600',
-      icon: 'text-danger-600',
-      iconBg: 'bg-danger-100'
+      gradient: 'from-red-50 to-red-100',
+      border: 'border-red-200/50',
+      text: 'text-red-700',
+      accent: 'from-red-500 to-red-600',
+      icon: 'text-red-600',
+      iconBg: 'bg-red-100'
     }
   };
 
@@ -133,9 +133,9 @@ const VitalCard = ({ title, value, unit, color = 'primary', onClick, icon, trend
   };
 
   const getTrendColor = (trend) => {
-    if (trend > 0) return 'text-success-600 bg-success-50 border-success-200';
-    if (trend < 0) return 'text-danger-600 bg-danger-50 border-danger-200';
-    return 'text-neutral-500 bg-neutral-50 border-neutral-200';
+    if (trend > 0) return 'text-green-600 bg-green-50 border-green-200';
+    if (trend < 0) return 'text-red-600 bg-red-50 border-red-200';
+    return 'text-gray-500 bg-gray-50 border-gray-200';
   };
 
   return (
@@ -164,17 +164,17 @@ const VitalCard = ({ title, value, unit, color = 'primary', onClick, icon, trend
       </div>
       
       {/* Title */}
-      <h3 className="text-sm font-semibold text-neutral-600 mb-3 group-hover:text-neutral-700 transition-colors duration-200">
+      <h3 className="text-sm font-semibold text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-200">
         {title}
       </h3>
       
       {/* Value */}
       <div className="flex items-baseline mb-2">
-        <span className={`text-3xl font-bold ${colors.text} group-hover:scale-105 transition-transform duration-200`}>
+        <span className={`text-2xl md:text-3xl font-bold ${colors.text} group-hover:scale-105 transition-transform duration-200`}>
           {value}
         </span>
         {unit && (
-          <span className="ml-2 text-lg font-semibold text-neutral-500">
+          <span className="ml-2 text-base md:text-lg font-semibold text-gray-500">
             {unit}
           </span>
         )}
@@ -189,7 +189,7 @@ const VitalCard = ({ title, value, unit, color = 'primary', onClick, icon, trend
         </div>
         
         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-          <svg className="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
         </div>
