@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
 import Alerts from './pages/Alerts';
 import PatientDetail from './pages/PatientDetail';
+import Login from './pages/Login';
 import './App.css';
 
 function App() {
@@ -65,6 +66,9 @@ function App() {
     <Router>
       <div className="min-h-screen bg-gray-50">
         <Routes>
+          {/* Login route - redirect to dashboard if already authenticated */}
+          <Route path="/login" element={<Navigate to="/" replace />} />
+          
           {/* Protected routes with navbar */}
           <Route path="/*" element={
             <>

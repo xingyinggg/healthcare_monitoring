@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Healthcare Professional Palette
+        // Modern Healthcare Professional Palette
         primary: {
           50: "#eff6ff",
           100: "#dbeafe",
@@ -16,6 +16,34 @@ export default {
           700: "#1d4ed8",
           800: "#1e40af",
           900: "#1e3a8a",
+          950: "#172554",
+        },
+        secondary: {
+          50: "#fdf4ff",
+          100: "#fae8ff",
+          200: "#f5d0fe",
+          300: "#f0abfc",
+          400: "#e879f9",
+          500: "#d946ef",
+          600: "#c026d3",
+          700: "#a21caf",
+          800: "#86198f",
+          900: "#701a75",
+          950: "#4a044e",
+        },
+        neutral: {
+          0: "#ffffff",
+          50: "#f8fafc",
+          100: "#f1f5f9",
+          200: "#e2e8f0",
+          300: "#cbd5e1",
+          400: "#94a3b8",
+          500: "#64748b",
+          600: "#475569",
+          700: "#334155",
+          800: "#1e293b",
+          900: "#0f172a",
+          950: "#020617",
         },
         success: {
           50: "#f0fdf4",
@@ -28,6 +56,7 @@ export default {
           700: "#15803d",
           800: "#166534",
           900: "#14532d",
+          950: "#052e16",
         },
         warning: {
           50: "#fffbeb",
@@ -40,6 +69,7 @@ export default {
           700: "#b45309",
           800: "#92400e",
           900: "#78350f",
+          950: "#451a03",
         },
         danger: {
           50: "#fef2f2",
@@ -52,42 +82,196 @@ export default {
           700: "#b91c1c",
           800: "#991b1b",
           900: "#7f1d1d",
+          950: "#450a0a",
+        },
+        // Healthcare specific colors
+        heart: {
+          50: "#fef2f2",
+          500: "#ef4444",
+          600: "#dc2626",
+        },
+        oxygen: {
+          50: "#f0f9ff",
+          500: "#0ea5e9",
+          600: "#0284c7",
+        },
+        temperature: {
+          50: "#fff7ed",
+          500: "#f97316",
+          600: "#ea580c",
+        },
+        pressure: {
+          50: "#f8fafc",
+          500: "#6366f1",
+          600: "#4f46e5",
         },
       },
       fontFamily: {
-        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        sans: [
+          "Inter",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "sans-serif",
+        ],
+        display: ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        mono: ["SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "monospace"],
+      },
+      fontSize: {
+        "2xs": ["0.625rem", { lineHeight: "0.75rem" }],
+        xs: ["0.75rem", { lineHeight: "1rem" }],
+        sm: ["0.875rem", { lineHeight: "1.25rem" }],
+        base: ["1rem", { lineHeight: "1.5rem" }],
+        lg: ["1.125rem", { lineHeight: "1.75rem" }],
+        xl: ["1.25rem", { lineHeight: "1.75rem" }],
+        "2xl": ["1.5rem", { lineHeight: "2rem" }],
+        "3xl": ["1.875rem", { lineHeight: "2.25rem" }],
+        "4xl": ["2.25rem", { lineHeight: "2.5rem" }],
+        "5xl": ["3rem", { lineHeight: "1" }],
+        "6xl": ["3.75rem", { lineHeight: "1" }],
+        "7xl": ["4.5rem", { lineHeight: "1" }],
+        "8xl": ["6rem", { lineHeight: "1" }],
+        "9xl": ["8rem", { lineHeight: "1" }],
+      },
+      spacing: {
+        18: "4.5rem",
+        22: "5.5rem",
+        26: "6.5rem",
+        30: "7.5rem",
+        88: "22rem",
+        92: "23rem",
+        96: "24rem",
+        104: "26rem",
+        112: "28rem",
+        128: "32rem",
       },
       borderRadius: {
         "4xl": "2rem",
         "5xl": "2.5rem",
+        "6xl": "3rem",
       },
       boxShadow: {
         soft: "0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)",
-        medium: "0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-        large: "0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 20px 25px -5px rgba(0, 0, 0, 0.04)",
+        medium:
+          "0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        large:
+          "0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 20px 25px -5px rgba(0, 0, 0, 0.04)",
+        xl: "0 20px 50px -12px rgba(0, 0, 0, 0.25)",
+        "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        "inner-soft": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
+        "glow-blue": "0 0 20px rgba(59, 130, 246, 0.3)",
+        "glow-green": "0 0 20px rgba(34, 197, 94, 0.3)",
+        "glow-red": "0 0 20px rgba(239, 68, 68, 0.3)",
+        "glow-orange": "0 0 20px rgba(251, 146, 60, 0.3)",
       },
       animation: {
         "fade-in": "fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+        "fade-out": "fadeOut 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
         "slide-up": "slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+        "slide-down": "slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+        "slide-left": "slideLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+        "slide-right": "slideRight 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
         "scale-in": "scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "scale-out": "scaleOut 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "bounce-subtle": "bounceSubtle 2s infinite",
         "pulse-soft": "pulseSoft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "gradient-shift": "gradientShift 3s ease infinite",
+        "spin-slow": "spin 3s linear infinite",
+        "ping-slow": "ping 3s cubic-bezier(0, 0, 0.2, 1) infinite",
+        float: "float 3s ease-in-out infinite",
+        "heart-beat": "heartBeat 1.5s ease-in-out infinite",
+        shimmer: "shimmer 2s linear infinite",
       },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        fadeOut: {
+          "0%": { opacity: "1", transform: "translateY(0)" },
+          "100%": { opacity: "0", transform: "translateY(-10px)" },
+        },
         slideUp: {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        slideDown: {
+          "0%": { opacity: "0", transform: "translateY(-20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        slideLeft: {
+          "0%": { opacity: "0", transform: "translateX(20px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        slideRight: {
+          "0%": { opacity: "0", transform: "translateX(-20px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
         },
         scaleIn: {
           "0%": { opacity: "0", transform: "scale(0.9)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
+        scaleOut: {
+          "0%": { opacity: "1", transform: "scale(1)" },
+          "100%": { opacity: "0", transform: "scale(0.9)" },
+        },
+        bounceSubtle: {
+          "0%, 100%": { transform: "translateY(-2%)" },
+          "50%": { transform: "translateY(0)" },
+        },
         pulseSoft: {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.7" },
+        },
+        gradientShift: {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        heartBeat: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.1)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" },
+        },
+      },
+      backdropBlur: {
+        xs: "2px",
+        "4xl": "72px",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-mesh": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        noise:
+          'url(\'data:image/svg+xml,%3Csvg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E\')',
+      },
+      screens: {
+        "3xl": "1600px",
+        "4xl": "1920px",
+      },
+      zIndex: {
+        60: "60",
+        70: "70",
+        80: "80",
+        90: "90",
+        100: "100",
+      },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          sm: "1.5rem",
+          lg: "2rem",
+          xl: "2.5rem",
+          "2xl": "3rem",
         },
       },
     },
