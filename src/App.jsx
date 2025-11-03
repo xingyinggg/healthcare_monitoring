@@ -6,6 +6,7 @@ import Alerts from './pages/Alerts';
 import PatientDetail from './pages/PatientDetail';
 import Login from './pages/Login';
 import './App.css';
+import Analytics from "./pages/Analytics.jsx";
 
 function App() {
   const auth = useAuth()
@@ -75,6 +76,7 @@ function App() {
               <Navbar />
               <Routes>
                 <Route path="/" element={<Dashboard />} />
+                <Route path="/analytics" element={<Analytics />} />
                 <Route path="/alerts" element={<Alerts />} />
                 <Route path="/patient/:id" element={<PatientDetail />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
