@@ -2,11 +2,12 @@ import { useAuth } from "react-oidc-context"
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
+import Analytics from "./pages/Analytics";
 import Alerts from './pages/Alerts';
 import PatientDetail from './pages/PatientDetail';
 import Login from './pages/Login';
 import './App.css';
-import Analytics from "./pages/Analytics.jsx";
+
 
 function App() {
   const auth = useAuth()
