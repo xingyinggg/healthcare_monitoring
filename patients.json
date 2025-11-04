@@ -1,0 +1,50 @@
+[
+  {
+    "device_id": "xiaomi-watch-001",
+    "user": "Vanessa",
+    "gender": "Female",
+    "age": 28,
+    "clinic_id": "CLINIC#Jurong",
+    "condition": "Hypertension"
+  },
+  {
+    "device_id": "omron-bp-002",
+    "user": "Michael",
+    "gender": "Male",
+    "age": 42,
+    "clinic_id": "CLINIC#Pioneer",
+    "condition": "Diabetes"
+  },
+  {
+    "device_id": "fitbit-003",
+    "user": "Sarah",
+    "gender": "Female",
+    "age": 35,
+    "clinic_id": "CLINIC#Jurong",
+    "condition": "Asthma"
+  },
+  {
+    "device_id": "ecg-monitor-004",
+    "user": "David",
+    "gender": "Male",
+    "age": 50,
+    "clinic_id": "CLINIC#Clementi",
+    "condition": "Arrhythmia"
+  },
+  {
+    "device_id": "pulse-ox-005",
+    "user": "Emily",
+    "gender": "Female",
+    "age": 60,
+    "clinic_id": "CLINIC#Clementi",
+    "condition": "COPD"
+  },
+  {
+    "device_id": "resp-monitor-006",
+    "user": "James",
+    "gender": "Male",
+    "age": 47,
+    "clinic_id": "CLINIC#Pioneer",
+    "condition": "Hypertension"
+  }
+]
