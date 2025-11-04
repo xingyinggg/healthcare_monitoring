@@ -17,16 +17,23 @@ healthcare_monitoring/
 │   │   ├── 📊 PatientTable.jsx        # Patient data table component
 │   │   ├── 📈 VitalCard.jsx           # Individual vital signs card
 │   │   └── 📉 VitalChart.jsx          # Charts for vital signs visualization
+│   ├── 📂 config/                     # Configuration files
+│   │   └── ⚙️  config.js              # Centralized app configuration (AWS, Metabase)
 │   ├── 📂 data/                       # Data management
 │   │   └── 🗃️  mockData.js            # Mock patient data for development
 │   ├── 📂 pages/                      # React page components
 │   │   ├── 🚨 Alerts.jsx              # Alerts management page
+│   │   ├── 📊 Analytics.jsx           # Analytics dashboard with Metabase
 │   │   ├── 🏠 Dashboard.jsx           # Main dashboard page
 │   │   ├── 🔐 Login.jsx               # User authentication page
 │   │   └── 👤 PatientDetail.jsx       # Individual patient details page
+│   ├── 📂 services/                   # Business logic services
+│   │   └── 🔗 metabaseService.js      # Metabase JWT integration service
+│   ├── 📂 utils/                      # Utility functions
+│   │   └── 🧪 metabaseTest.js         # Metabase integration testing utilities
 │   ├── 🎨 App.css                     # Main application styles
 │   ├── ⚛️  App.jsx                    # Root React component & routing
-│   ├── ☁️  aws-config.js              # AWS Cognito authentication config
+│   ├── ☁️  aws-config.js              # AWS config (DEPRECATED - use config/config.js)
 │   ├── 🎨 index.css                   # Global CSS styles
 │   └── 🚀 main.jsx                    # React application entry point
 ├── 🌐 index.html                      # HTML template file
@@ -65,8 +72,15 @@ healthcare_monitoring/
 ### 🔐 **Authentication & Configuration**
 | File | Purpose | Description |
 |------|---------|-------------|
-| `src/aws-config.js` | ☁️ Auth Config | AWS Cognito OIDC authentication settings |
-| `.env.example` | 🔧 Env Template | Example environment variables file |
+| `src/config/config.js` | ⚙️ App Config | Centralized configuration (AWS, Metabase) with env variables |
+| `src/aws-config.js` | ☁️ Auth Config (DEPRECATED) | Legacy AWS Cognito config (use config/config.js instead) |
+| `.env.local` | 🔧 Environment | Environment variables for secure configuration |
+
+### 🔗 **Services & Utilities**
+| File | Purpose | Description |
+|------|---------|-------------|
+| `src/services/metabaseService.js` | 📊 Analytics | Metabase JWT token generation and URL creation |
+| `src/utils/metabaseTest.js` | 🧪 Testing | Metabase integration testing utilities |
 
 ### 🧩 **React Components**
 | File | Purpose | Description |
@@ -81,6 +95,7 @@ healthcare_monitoring/
 | File | Purpose | Description |
 |------|---------|-------------|
 | `Dashboard.jsx` | 🏠 Main Page | Primary dashboard with patient overview |
+| `Analytics.jsx` | 📊 Analytics | Metabase dashboard integration with secure embedding |
 | `Alerts.jsx` | 🚨 Alert Management | Alert monitoring and management interface |
 | `Login.jsx` | 🔐 Authentication | User login interface (AWS Cognito) |
 | `PatientDetail.jsx` | 👤 Patient Info | Detailed view of individual patient data |

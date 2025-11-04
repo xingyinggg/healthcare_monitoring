@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { AuthProvider } from "react-oidc-context"
 import App from './App.jsx'
 import './index.css'
-import { oidcConfig } from './aws-config.js'
+import { oidcConfig } from './config/config.js'
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
