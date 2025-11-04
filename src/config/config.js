@@ -55,19 +55,20 @@ if (typeof window !== 'undefined') {
 export const metabaseConfig = {
     siteUrl: import.meta.env.VITE_METABASE_SITE_URL,
     secretKey: import.meta.env.VITE_METABASE_SECRET_KEY,
+    publicDashboardUrl: import.meta.env.VITE_METABASE_PUBLIC_DASHBOARD_URL,
     defaultDashboardId: 2,
     defaultExpirationMinutes: 30,
     refreshIntervalMinutes: 25
 };
 
 // Validate Metabase configuration - also log in production if there are issues
-if (import.meta.env.DEV || !metabaseConfig.siteUrl || !metabaseConfig.secretKey) {
-    if (!metabaseConfig.siteUrl || !metabaseConfig.secretKey) {
+if (import.meta.env.DEV || !metabaseConfig.publicDashboardUrl) {
+    if (!metabaseConfig.publicDashboardUrl) {
         console.error('❌ Missing Metabase environment variables:');
-        if (!metabaseConfig.siteUrl) console.error('  - VITE_METABASE_SITE_URL is missing');
-        if (!metabaseConfig.secretKey) console.error('  - VITE_METABASE_SECRET_KEY is missing');
+        console.error('  - VITE_METABASE_PUBLIC_DASHBOARD_URL is missing');
     } else if (import.meta.env.DEV) {
-        console.log('✅ Metabase configuration loaded from environment variables');
+        console.log('✅ Metabase public dashboard configuration loaded from environment variables');
+        console.log('📊 Dashboard URL:', metabaseConfig.publicDashboardUrl);
     }
 }
 

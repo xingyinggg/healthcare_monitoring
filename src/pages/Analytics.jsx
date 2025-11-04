@@ -1,35 +1,33 @@
 import { useEffect, useState } from "react";
-import { generateMetabaseDashboardURL } from "../services/metabaseService";
 import { metabaseConfig } from "../config/config";
 
 export default function Analytics() {
-  const [dashboardUrl, setDashboardUrl] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const loadDashboard = async () => {
+    const loadDashboard = () => {
       try {
         setLoading(true);
         setError(null);
         
-        // Generate signed URL with configuration defaults (now async)
-        const signedUrl = await generateMetabaseDashboardURL();
-        setDashboardUrl(signedUrl);
+        // Validate public dashboard URL is available
+        if (!metabaseConfig.publicDashboardUrl) {
+          throw new Error('Public dashboard URL not configured');
+        }
+        
+        // Simple timeout to simulate loading
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       } catch (err) {
-        console.error('Failed to generate Metabase dashboard URL:', err);
-        setError('Failed to load analytics dashboard. Please try again later.');
-      } finally {
+        console.error('Failed to load Metabase dashboard:', err);
+        setError('Failed to load analytics dashboard. Please check configuration.');
         setLoading(false);
       }
     };
 
     loadDashboard();
-
-    // Refresh the URL periodically to prevent expiration
-    const refreshInterval = setInterval(loadDashboard, metabaseConfig.refreshIntervalMinutes * 60 * 1000);
-
-    return () => clearInterval(refreshInterval);
   }, []);
 
   if (loading) {
@@ -72,13 +70,13 @@ export default function Analytics() {
         
         <div className="h-[calc(100%-4rem)]">
           <iframe
-            src={dashboardUrl}
+            src={metabaseConfig.publicDashboardUrl}
             title="Healthcare Analytics Dashboard"
             frameBorder="0"
             width="100%"
             height="100%"
             allow="clipboard-read; clipboard-write"
-            allowTransparency
+            allowtransparency="true"
             loading="eager"
             className="rounded-b-lg"
           />
