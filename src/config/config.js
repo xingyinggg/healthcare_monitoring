@@ -11,18 +11,21 @@ const productionRedirectUri = import.meta.env.VITE_REDIRECT_URI;
 const localLogoutUri = import.meta.env.VITE_AUTH_LOGOUT_URI;
 const productionLogoutUri = import.meta.env.VITE_LOGOUT_URI;
 
-// Debug logging for development
-if (import.meta.env.DEV) {
-    console.log('🔧 Config Debug:', {
-        isLocalhost,
-        hostname: typeof window !== 'undefined' ? window.location.hostname : 'server-side',
-        localRedirectUri,
-        productionRedirectUri,
-        localLogoutUri,
-        productionLogoutUri,
-        selectedRedirectUri: isLocalhost ? localRedirectUri : productionRedirectUri,
-        selectedLogoutUri: isLocalhost ? (localLogoutUri || localRedirectUri) : (productionLogoutUri || productionRedirectUri)
-    });
+// Debug logging for both development AND production (for troubleshooting)
+const debugConfig = {
+    isLocalhost,
+    hostname: typeof window !== 'undefined' ? window.location.hostname : 'server-side',
+    localRedirectUri,
+    productionRedirectUri,
+    localLogoutUri,
+    productionLogoutUri,
+    selectedRedirectUri: isLocalhost ? localRedirectUri : productionRedirectUri,
+    selectedLogoutUri: isLocalhost ? (localLogoutUri || localRedirectUri) : (productionLogoutUri || productionRedirectUri)
+};
+
+// Always log in development, and also log in production if there are issues
+if (import.meta.env.DEV || !localRedirectUri || !productionRedirectUri) {
+    console.log('🔧 Config Debug:', debugConfig);
 }
 
 // Validate environment variables
@@ -36,6 +39,18 @@ if (!localRedirectUri || !productionRedirectUri) {
 const redirectUri = isLocalhost ? localRedirectUri : productionRedirectUri;
 const logoutUri = isLocalhost ? (localLogoutUri || localRedirectUri) : (productionLogoutUri || productionRedirectUri);
 
+// Additional logging to help debug production issues
+if (typeof window !== 'undefined') {
+    console.log('🌐 Final Auth Config:', {
+        environment: isLocalhost ? 'localhost' : 'production',
+        hostname: window.location.hostname,
+        redirectUri,
+        logoutUri,
+        userPoolId: import.meta.env.VITE_USER_POOL_ID,
+        oidcAuthority: import.meta.env.VITE_OIDC_AUTHORITY
+    });
+}
+
 // Metabase configuration
 export const metabaseConfig = {
     siteUrl: import.meta.env.VITE_METABASE_SITE_URL,
@@ -45,13 +60,13 @@ export const metabaseConfig = {
     refreshIntervalMinutes: 25
 };
 
-// Validate Metabase configuration
-if (import.meta.env.DEV) {
+// Validate Metabase configuration - also log in production if there are issues
+if (import.meta.env.DEV || !metabaseConfig.siteUrl || !metabaseConfig.secretKey) {
     if (!metabaseConfig.siteUrl || !metabaseConfig.secretKey) {
         console.error('❌ Missing Metabase environment variables:');
         if (!metabaseConfig.siteUrl) console.error('  - VITE_METABASE_SITE_URL is missing');
         if (!metabaseConfig.secretKey) console.error('  - VITE_METABASE_SECRET_KEY is missing');
-    } else {
+    } else if (import.meta.env.DEV) {
         console.log('✅ Metabase configuration loaded from environment variables');
     }
 }
