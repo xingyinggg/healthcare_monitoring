@@ -9,8 +9,8 @@ export const awsConfig = {
     oauth: {
       domain: "ap-southeast-1gbzwjb0a5.auth.ap-southeast-1.amazoncognito.com",
       scope: ["openid", "email", "profile"],
-      redirectSignIn: "https://staging.dwbsrj9watu1s.amplifyapp.com/",
-      redirectSignOut: "https://staging.dwbsrj9watu1s.amplifyapp.com/",
+      redirectSignIn: "https://main.d3hlgpq37iqfq0.amplifyapp.com/",
+      redirectSignOut: "https://main.d3hlgpq37iqfq0.amplifyapp.com/",
       responseType: "code"
     }
   }
@@ -20,10 +20,10 @@ export const awsConfig = {
 export const oidcConfig = {
   authority: "https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_GbZwjb0A5",
   client_id: "1f8p38gkthak9ui5dvrkp53k7q",
-  redirect_uri: "https://staging.dwbsrj9watu1s.amplifyapp.com/",
+  redirect_uri: "https://main.d3hlgpq37iqfq0.amplifyapp.com/",
   response_type: "code",
   scope: "openid email profile",
-  post_logout_redirect_uri: "https://staging.dwbsrj9watu1s.amplifyapp.com/",
+  post_logout_redirect_uri: "https://main.d3hlgpq37iqfq0.amplifyapp.com/",
   automaticSilentRenew: true,
   loadUserInfo: true,
 };
